@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn import preprocessing, cross_validation, neighbors
+from sklearn import preprocessing, cross_validation, neighbors, svm
 import pandas as pd
 
 accuracies = []
@@ -14,7 +14,7 @@ for i in range(25):
 
 	X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.2)
 
-	clf = neighbors.KNeighborsClassifier(n_jobs=1)
+	clf = svm.SVC()
 	clf.fit(X_train, y_train)
 
 	accuracy = clf.score(X_test, y_test)
